@@ -1,0 +1,59 @@
+.phone-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #0ef;
+  background-color: #000;
+}
+
+.form-container {
+  border: 2px solid #0ef;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.heading {
+  margin-bottom: 90px;
+}
+
+.phone-label-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.lable {
+  font-size: 20px;
+}
+
+.phone-input {
+  border: 1px solid #0ef;
+  background-color: transparent;
+  color: #0ef;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.phone-input::placeholder {
+  color: #0ef;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  background-color: #0ef;
+  border: none;
+  border-radius: 2px;
+  height: 35px;
+  width: 160px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  outline: none;
+}
