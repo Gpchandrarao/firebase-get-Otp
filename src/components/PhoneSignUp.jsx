@@ -10,6 +10,7 @@ const PhoneSignUp = () => {
   const [value, setValue] = useState("");
   const [otp, setOTP] = useState("");
   const [showOTP, setShowOTP] = useState(true);
+  const [showVerify, setShowVerify] = useState(false);
   const [conff, setConff] = useState("");
 
   function setUpRecaptcha(value) {
@@ -38,8 +39,15 @@ const PhoneSignUp = () => {
     }
   };
 
-  const varifyOtp = (e) => {
+  const varifyOtp = async (e) => {
     e.preventDefault();
+    try {
+      await conff.confirm(otp);
+      setShowVerify(true);
+    } catch (error) {
+      console.log(error);
+      setShowVerify(false);
+    }
   };
 
   const onchangeOtp = (e) => {
@@ -88,6 +96,13 @@ const PhoneSignUp = () => {
             Varify Otp
           </button>
         </form>
+      )}
+      {showVerify ? (
+        <div>
+          <p className="veriy-page">☠️☠️ verifycaation success ☠️☠️</p>
+        </div>
+      ) : (
+        ""
       )}
     </div>
   );
