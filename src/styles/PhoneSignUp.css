@@ -13,6 +13,7 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  width: 500px;
   align-items: center;
   padding: 20px;
 }
@@ -27,16 +28,25 @@
   gap: 15px;
 }
 
+.varity-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
 .lable {
   font-size: 20px;
+  width: 50%;
 }
 
 .phone-input {
   border: 1px solid #0ef;
   background-color: transparent;
-  color: #0ef;
-  padding: 10px;
-  font-size: 20px;
+  font-size: 10px;
+  height: 5vh;
+
+  width: 100%;
   border-radius: 5px;
   outline: none;
 }
@@ -62,5 +72,4 @@
   color: green;
   font-size: 25px;
   margin-top: 30px;
-  /* background-color: red; */
 }

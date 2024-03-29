@@ -1,6 +1,10 @@
 import React, { useState } from "react";
-import PhoneInput from "react-phone-number-input";
-import "react-phone-number-input/style.css";
+// import PhoneInput from "react-phone-number-input";
+// import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-input-2";
+import OTPInput from "otp-input-react";
+import "react-phone-input-2/lib/style.css";
+
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "../firbase";
 
@@ -26,7 +30,6 @@ const PhoneSignUp = () => {
   const getOtp = async (e) => {
     e.preventDefault();
     console.log(value);
-    // if(value === "" || value === undefined)
 
     try {
       const res = await setUpRecaptcha(value);
@@ -67,8 +70,17 @@ const PhoneSignUp = () => {
               placeholder="Enter phone number"
               value={value}
               onChange={setValue}
-              defaultCountry="IN"
-              autoFocus
+              country={"in"}
+              autoFocus="on"
+              inputStyle={{
+                background: "transparent",
+                border: "none",
+                color: "#0ef",
+                fontSize: "20px",
+                width: "100%",
+                height: "100%",
+              }}
+              dropdownStyle={{ color: "#000", background: "#0ef" }}
               className="phone-input"
             />
             <div id="recaptcha-container" />
@@ -79,18 +91,27 @@ const PhoneSignUp = () => {
         </form>
       ) : (
         <form className="form-container" onSubmit={varifyOtp}>
-          <div className="phone-label-container">
+          <div className="varity-container">
             <label htmlFor="otp" className="lable">
               Varify OTP
             </label>
-            <input
+            <OTPInput
+              value={otp}
+              onChange={setOTP}
+              autoFocus
+              OTPLength={6}
+              otpType="number"
+              disabled={false}
+              // secure
+            />
+            {/* <input
               id="otp"
               type="text"
               placeholder="Enter OTP"
               value={otp}
               onChange={onchangeOtp}
               className="phone-input"
-            />
+            /> */}
           </div>
           <button type="submit" className="submit-btn">
             Varify Otp
